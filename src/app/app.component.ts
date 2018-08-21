@@ -27,8 +27,6 @@ export class AppComponent implements AfterViewInit {
     this.keyManager = new FocusKeyManager(this.inputs).withWrap();
     this.keyManager.setActiveItem(0);
   }
-
-  // @HostListener('keydown', ['$event'])
   keyup (index) {
     const current = `i${index}`;
     const next = `i${index === this.form.controls.length ? 0 : index + 1}`;
@@ -36,10 +34,5 @@ export class AppComponent implements AfterViewInit {
     if (input.length >= 4) {
       this.keyManager.setActiveItem(index + 1);
     }
-    // if ($event.keyCode === UP_ARROW) {
-    //   this.keyManager.setPreviousItemActive();
-    // } else if ($event.keyCode === DOWN_ARROW) {
-    //   this.keyManager.setNextItemActive();
-    // }
   }
 }
